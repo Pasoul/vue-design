@@ -218,7 +218,7 @@ const { render, staticRenderFns } = compileToFunctions(template, {
 }
 ```
 
-其中 `shouldDecodeNewlines` 和 `shouldDecodeNewlinesForHref` 这两个变量来自于 `platforms/web/util/compat.js` 文件，大家可以在附录 [platforms/web/util 目录下的工具方法全解](../appendix/web-util.md) 中查看这两个变量的作用，其目的是对浏览器的怪癖做兼容，具体在附录中都有讲到，并且这两个变量的类型都是布尔值。
+其中 `shouldDecodeNewlines` 和 `shouldDecodeNewlinesForHref` 这两个常量来自于 `platforms/web/util/compat.js` 文件，大家可以在附录 [platforms/web/util 目录下的工具方法全解](../appendix/web-util.md) 中查看这两个常量的作用，其目的是对浏览器的怪癖做兼容，具体在附录中都有讲到，并且这两个常量的类型都是布尔值。
 
 对于 `options.delimiters` 和 `options.comments`，其中 `options` 就是当前 `Vue` 实例的 `$options` 属性，并且 `delimiters` 和 `comments` 都是 `Vue` 提供的选项。所以这里只是简单的将这两个选项透传了过去。
 
@@ -571,7 +571,7 @@ export default {
 }
 ```
 
-可以看到这三个文件输出的都是对象，且 `klass.js` 文件与 `style.js` 文件的输出基本相同，只有 `staticKeys` 字段有所区别，而 `model.js` 文件输出的对象只包含 `preTransformNode` 属性。最终 `platforms/web/compiler/modules/index.js` 文件将这三个文件的输出综合为一个数组进行输出，所以其输出的内容为：
+可以看到这三个文件输出的都是对象，且 `class.js` 文件与 `style.js` 文件的输出基本相同，只有 `staticKeys` 字段有所区别，而 `model.js` 文件输出的对象只包含 `preTransformNode` 属性。最终 `platforms/web/compiler/modules/index.js` 文件将这三个文件的输出综合为一个数组进行输出，所以其输出的内容为：
 
 ```js
 [
@@ -886,7 +886,7 @@ export function otherCompiler (template: string, options: CompilerOptions) {
 
 ```js
 function createCompilerCreator (baseCompile) {
-  return customCompiler function (template: string, options: CompilerOptions) {
+  return function customCompiler (template: string, options: CompilerOptions) {
 
     // 一些处理编译错误的代码
 
